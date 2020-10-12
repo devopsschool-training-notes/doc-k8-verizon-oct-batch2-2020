@@ -1,0 +1,222 @@
+Rajesh Kumar
+================
+1 2 3 4 5 6 7 8 9 
+=============================
+2 Break - 15 mins - 20 mins
+	  	11.30 AM
+		4:00 PM 
+	9-30 AM  - 6:30 PM IST
+Lunch - 1 PM IST - 2 PM IST
+==============================
+Demo - my Box
+Lab - 
+==============================
+Notes - Github
+==============================
+Pre Test - Now
+https://www.devopsschool.com/lms/
+
+Docker Essential Quiz - 1 
+https://www.devopsschool.com/lms/mod/quiz/view.php?id=250 - 15 mins
+
+Kubernetes Essential Quiz - 1
+https://www.devopsschool.com/lms/mod/quiz/view.php?id=319 - 10 mins
+
+Post Test	
+==============================
+What is Docker?
+	Container mgmt tool/Platform
+	Releasee
+			Community - Free
+			Enterprise - paid
+	Written in Golang
+	From Soloman hykes
+	
+
+	What is Container?
+		Each container is a USER NS
+						with 
+							1 NET NS
+							1 PID nS
+							1 MNT NS
+								ROOTFS + USERFS + APPFS
+=========================================================================
+		Container is a independent RUN TIME APP Env.
+					without any depen outside
+
+	What is tool?
+		To Save cost
+		To Improve Quality
+		To Save time
+=================================
+How do we run APP?
+What are the components in Computer to run Any App?
+What are the components needed in a Computer to run Any Software?
+=================================
+30 YEARS		| 	20 YEARS	| 	NOW
+======================================================================
+Desktop				Virual Machine	`	Container
+-----------------------------------------------------------------------
+				Internet
+------------------------------------------------------------------------
+				Run APP In DATA Center
+					To Save RUN TIME cost
+					To Improve Quality of Software
+					To Save time in terms releases
+
+To run APP
+				INIT		ALLOWED
+		USER		1 		MULTIPLE
+		NET		1 		1
+		MNT		1 		1
+		PID		1 		1
+=================================================================
+OS  ->  KERNAL  -> 
+		Namespaces
+				INIT		ALLOWED
+		USER		1 		MULTIPLE
+		NET		1 		1
+		MNT		1 		1
+		PID		1 		1
+
+		USER IS ROOT or Not Root
+		--------------------
+		Capabilities
+
+		PID gets CPU+RAM allocation
+		---------------------
+		Crgoups
+=========================================
+How can we run APPS without too many OS of Vms?
+		in Data center?
+How can we reduce a wasteage of Vms?
+=
+==========================================
+MNT === Filesystem(S)
+
+BOOTFS 		ROOTFS		USERFS		APPFS
+Kernal		/		USER_HOME	APP_HOME			
+=========================================================
+			OS
+
+
+
+Microsfot + Linux
+========================
+NO. - We would not allowed to init 
+		MNT
+		PID
+		NET 
+			to each user.
+============================================
+WHY???
+	OS for
+	PC = PERSONAL Computer for HUMAN
+			NOT FOR DATA CENTER
+=============================================
+
+Other Container Interface?
+https://www.devopsschool.com/blog/list-of-top-container-runtime-interface-projects/
+
+How Docker Works aka Docker Arch?
+===========================================
+Human --> Docker Client ---REST---> Docker Deamon	-> ContainerD -> Kernal 
+				    Docker Server		-> ContainerD
+									RUNC
+	=========================================
+			Docker Engine
+
+Docker Components
+========================
+Docker Engine	- A platform which need to be installed.
+
+Docker Image 
+		IS YOUR APP.
+		Collection of Filesystem(S)
+		ROOTFS + USERFS + APPFS
+		One Copy of Image get mounted to each container
+		From one image - you can get multiple container
+		Whatever you have in image - you have in container.
+
+Docker Registry
+		Regisrty has repo(s)
+		Each repo has filesystem(s) named with an image.
+		PUBLIC
+			hub.docker.com
+				repos - aka image
+			Google Registry
+
+		PVT
+			Artifactory
+			Nexus
+			ECR
+Docker Container
+
+		The Moment you run image - 
+					One USER NS get initalized with
+						MOUNT form image
+						NET
+						PID
+
+
+Docker Workflow
+=========================================================
+run an image
+===========
+docker run app(img name)
+
+Human -> Client --> Server(Deamon)
+			- Check - Do i have an Image in Local Registry
+				YES ---> Create a container
+				NO --> Download from hub.docker.com to Local Registry
+					& Create a container
+
+
+Docker Installtion
+=================================================
+65.0.104.191
+65.0.104.191
+https://www.devopsschool.com/tutorial/docker/install-config/docker-install-commuityedition-centos-rhel.html
+
+  1  sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+    2  sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+    3  sudo yum install –y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    4  sudo yum-config-manager --enable rhui-REGION-rhel-server-extras
+    5  sudo yum install -y docker-ce
+    6  docker -v
+    7  docker version
+    8  sudo systemctl enable docker
+    9  sudo systemctl start docker
+   10  docker version
+   11  docker info
+   12  history
+   13  which docker
+   14  ps -eaf | grep docker
+   15  which containerd
+   16  history
+
+
+Container LifeCycle
+=============================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
