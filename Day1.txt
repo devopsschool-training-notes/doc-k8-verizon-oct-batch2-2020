@@ -152,7 +152,7 @@ Docker Registry
 			ECR
 Docker Container
 
-		The Moment you run image - 
+		The Moment you run an image - 
 					One USER NS get initalized with
 						MOUNT form image
 						NET
@@ -196,11 +196,84 @@ https://www.devopsschool.com/tutorial/docker/install-config/docker-install-commu
    16  history
 
 
+Vms LifeCycle
+=============================================
+Create -> Start -> Stop -> Start -> Restart -> Pause -> UnPause -> Kill -> Remove
+
 Container LifeCycle
 =============================================
+Create -> Start -> Stop -> Start -> Restart -> Pause -> UnPause -> Kill -> Remove
+
+Jenkins
+		Web based
+		8080
+		50000
+		JAVA based
+
+ 19  docker images
+   20  docker ps
+   21  docker ps -a
+   22  docker pull jenkins
+   23  clear
+   24  docker images
+   25  docker ps
+   26  docker ps -a
+   27  docker create jenkins
+   28  docker ps
+   29  docker ps -a
+   30  clear
+   31  docker ps -a
+   32  docker ps
+   33  dcoker ps -a
+   34  docker ps -a
+   35  docker create jenkins
+   36  docker ps -a
+   37  clea
+   38  rclear
+   39  clear
+   40  ls
+   41  docker ps -a
+   42  docker start 17476d7826cb
+   43  docker ps -a
+   44  docker start e20335986e52
+   45  docker ps -a
+   46  cleaer
+   47  clear
+   48  docker ps
+   49  docker stop 17476d7826cb e20335986e52
+   50  docker ps -a
+   51  docker stary 17476d7826cb e20335986e52
+   52  clear
+   53  docker start 17476d7826cb e20335986e52
+   54  docker ps -a
+   55  docker ps -a
+   56  docker restart 17476d7826cb e20335986e52
+   57  docker ps -a
+   58  clear
+   59  docker pause 17476d7826cb e20335986e52
+   60  docker ps -a
+   61  docker unpause 17476d7826cb e20335986e52
+   62  docker ps -a
+   63  clear
+   64  docker kill 17476d7826cb e20335986e52
+   65  docker ps -a
+   66  docker start 17476d7826cb
+   67  docker ps -a
+   68  docker rm 17476d7826cb
+   69  docker rm e20335986e52
+   70  history
 
 
+LAB 		15 mins
+===========
 
+Question & Assignment
+===========================
+STOP Vs Kill		5 mins
+Pause VS unPause 	5 mins
+
+===============================================================
+20 mins - 
 
 
 
