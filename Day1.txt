@@ -274,22 +274,161 @@ Pause VS unPause 	5 mins
 
 ===============================================================
 20 mins - 
+==================================================================
+
+		The Moment you run an image - 
+					One USER NS get initalized with
+						MOUNT form image
+						NET
+						PID
+
+    3  ps
+    4  cd
+    5  pwd
+    6  ls
+    7  ps -eaf | grep 3423
+    8  ps -eaf | grep 3364
+    9  ps -eaf | grep 1432
+   10  ps -eaf | grep 1236
+   11  ps -eaf
+   12  clear
+   13  history
+
+
+   85  docker ps
+   86  ps -eaf | grep docker
+   87  ps -eaf | grep 19226
+   88  ps -eaf | grep 8938
+   89  ps -eaf
+   90  clear
+
+
+ 93  docker ps
+   94  df -kh'
+   95  df -kh
+   96  docker stop 17476d7826cb
+   97  df -kh
+   98  docker start 17476d7826cb
+   99  clear
+  100  df -kh
+  101  clear
+  102  df -kh
+  103  cd /var/lib/docker/overlay2/6aaca336da5ea89af721cc556c6d2b6f0e19d603742f694762747358cc2bddf0/merged
+  104  clear
+  105  ls
+  106  cd home
+  107  ls
+  108  cd ..
+  109  ls
+  110  cd var
+  111  ls
+  112  cd jenkins_home
+  113  pwd
+  114  ls
+  115  clear
+  116  docker ps
+  117  docker exec 17476d7826cb df -kh
+  118  docker exec 17476d7826cb ls /
+  119  docker exec 17476d7826cb ls /var
+  120  ls
+  121  clear
+  122  cd
+  123  ;ls
+  124  clear
+  125  docker ps
+  126  history
 
 
 
 
+  127  clear
+  128  docker ps
+  129  docker inspect 17476d7826cb
+  130  clear
+  131  docker inspect 17476d7826cb | grep -i ip
+  132  ping 172.17.0.2
+  133  clear
+  134  ls
+  135  ps -eaf
+  136  clear
+  137  docker ps
+  138  docker exec 17476d7826cb ps -eaf
+  139  ps -eaf
+  140  docker exec 17476d7826cb ps -eaf
+  141  history
+
+============================================================
+RUN
+=======================
+pull + create + start + Attach(Become)
 
 
+RUN -d
+=======================
+pull + create + start + deAttach(do not Become)
+
+=========================================================
+PHYSICAL SERVER 	Virtual SERVER		Container 
+is running		is running		is running
+ONLY and ONLY		ONLY and ONLY		ONLY and ONLY
+When 			When 			When 
+PID 1 is running	PID 1 is running	PID 1 is running		
+
+PID 1 is systemd	PID 1 is systemd	PID 1 ANYTHING
+						/bin/bash
+						/abc
+						/xyz
+						perl
+						python
+						java
+						bash
+						ruby
+
+How to use container?
+=====================================
+You want to go inside a container using SHELL?
+1. exec
+		would execute an executable inside a container
+		but with -it and bash - you can interact
+2. Attach
+		would attached to a PID 1. (attach to container)
+		Use Case 
+		- When you have PID 1 of the container is /bin/bash - then you should attached
+		- When you want to see logs of PID1..
+
+ 166  docker ps
+  167  docker exec 17476d7826cb ls
+  168  docker exec 17476d7826cb df
+  169  clear
+  170  docker exec 17476d7826cb ps
+  171  docker exec 17476d7826cb fffff
+  172  docker ps
+  173  docker exec -it 17476d7826cb /bin/bash
+  174  docker ps
+  175  clear
+  176  docker ps
+  177  docker attach 17476d7826cb
+  178  docker ps
+  179  docker ps -a
 
 
+OR
+You want to access app from outside of the container? (Network)
+
+  190  dcoker ps
+  191  clear
+  192  docker ps
+  193  docker inspect 97494a0bdd4e | grep -i ip
+  194  docker inspect d393fe34bfdc | grep -i ip
+  195  curl http://172.17.0.2:8080
+  196  curl http://172.17.0.3:8080
 
 
+$ docker run jenkins
+$ docker run -d jenkins
+$ docker run -d -p 8080:8080 jenkins
+			ext:int
+			node:container
 
-
-
-
-
-
-
-
+docker run -d -p 8090:8080 jenkins
 
