@@ -136,5 +136,99 @@ update	Update configuration of one or more containers
 wait	Block until one or more containers stop, then print their exit codes
 
 
+Anatomy of Images
+===============================
+
+ 210  docker ps -a
+  211  docker stop $(docker ps -a -q)
+  212  clear
+  213  docker rm $(docker ps -a -q)
+  214  clear
+  215  docker ps -a
+  216  docker images
+  217  docker rmi ubuntu jenkins
+  218  clear
+  219  docker images
+  220  docker info
+  221  cd /var/lib/docker
+  222  clear
+  223  ls
+  224  ls -1
+  225  pwd
+  226  cd overlay2
+  227  clear
+  228  ls
+  229  du -sh .
+  230  docker pull ubuntu
+  231  ls
+  232  clear
+  233  ls
+  234  docker history ubuntu
+  235  ls
+  236  du -h --max-depth=1
+  237  clear
+  238  docker inspect ubuntu
+  239  ls
+  240  clear
+  241  du -h --max-depth=1
+  242  cd ./c4a2a894546440eb5b5f1affedb860675431a67cfa3cba2dc556b4feed36931c
+  243  ls
+  244  clear
+  245  ls
+  246  cd diff/
+  247  ls
+  248  clear
+  249  pwd
+  250  ls
+  251  cd ..
+  252  ls
+  253  cd ..
+  254  ls
+  255  clear
+  256  ls
+  257  df -kh
+  258  docker run -itd ubuntu
+  259  ls
+  260  du -sh 4a956ea666631997d988af73defbf537983b24cf3d51869e0b2e199c0f5ab744
+  261  du -sh 4a956ea666631997d988af73defbf537983b24cf3d51869e0b2e199c0f5ab744-init
+  262  clear
+  263  ls
+  264  df -kh
+  265  cd /var/lib/docker/overlay2/4a956ea666631997d988af73defbf537983b24cf3d51869e0b2e199c0f5ab744/merged
+  266  ls
+  267  cd ..
+  268  clear
+  269  ls
+  270  docker ps
+  271  docker stop 844f74c3357a
+  272  cd ..
+  273  ls
+  274  clear
+  275  ls
+  276  cd 4a956ea666631997d988af73defbf537983b24cf3d51869e0b2e199c0f5ab744
+  277  ls
+  278  docker start 844f74c3357a
+  279  ls
+  280  df -kh
+  281  docker start 844f74c3357a
+  282  df -kh
+  283  clear
+  284  docker stop 844f74c3357a
+  285  ls
+  286  df -kh
+  287  docker start 844f74c3357a
+  288  ls
+  289  cd ..
+  290  ls
+  291  clear
+  292  docker ps
+  293  docker exec 844f74c3357a touch /opt/rajesh.txt'
+  294  docker exec 844f74c3357a touch /opt/rajesh.txt
+  295  docker exec 844f74c3357a ls /opt/
+  296  find . -name rajesh.txt
+  297  docker stop 844f74c3357a
+  298  find . -name rajesh.txt
+  299  docker start 844f74c3357a
+  300  find . -name rajesh.txt
 
 
