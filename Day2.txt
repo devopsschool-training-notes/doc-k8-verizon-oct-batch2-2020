@@ -320,12 +320,98 @@ Step 6 - docker push
   492  docker tag ub-up-git-java-ap devopsschools/mangal-ub-up-git-java-ap
   493  clear
   494  docker images
-  495  docker login
+  495  docker login 
   496  docker push devopsschools/mangal-ub-up-git-java-ap
   497  history
 
 
-3. Using Pvt registry i.e -artifactory
+3. Using Pvt registry i.e - artifactory
+https://www.devopsschool.com/blog/?s=artifactory
+
+==============================================
+Docker Volume?
+=============================
+https://www.devopsschool.com/blog/understand-docker-volume-from-beginner-to-deep-dive-level/
+Prb -  Containers data are emph*
+
+Solution - Docker Volume
+------------------------------------
+Volume is a way to store a data beyond life of containers.
+
+Docker Volume
+		volume	/var/lib/docker/volumes
+		mnt	- Any location in Host Machine
+		tmfs	- Stored in memory
+
+ 443  ls
+  444  docker volume
+  445  docker volume prune
+  446  y
+  447  clear
+  448  docker volume ls
+  449* l
+  450  docker volume
+  451  docker volume create dev
+  452  clear
+  453  ls
+  454  docker volume create qa
+  455  docker volume ls
+  456  docker volume rm qa
+  457  docker volume ls
+  458  docker volume create qa
+  459  clear
+  460  ls
+  461  cd dev/
+  462  ls
+  463  cd _data/
+  464  ls
+  465  clear
+  466  ls
+  467  cd ..
+  468  ls
+  469  cd ..
+  470  ls
+  471  docker volume inspect dev
+  472  clear
+  473  docker run -itd -v dev:/opt/raju ubuntu
+  474  docker ps
+  475  docker exec 8fb2ceda4f17 df -kh
+  476  clear
+  477  docker exec 8fb2ceda4f17 touch /opt/raju/rrr
+  478  docker exec 8fb2ceda4f17 ls /opt/raju
+  479  ls
+  480  cd dev/
+  481  ls
+  482  clear
+  483  ls
+  484  cd _data/
+  485  ;ls
+  486  clear
+  487  ls
+  488  touch ffdfff
+  489  docker exec 8fb2ceda4f17 ls /opt/raju
+  490  pwd
+  491  cd ..
+  492  ls
+  493  clear
+  494  ls
+  495  cd ..
+  496  ls
+  497  docker ps
+  498  docker stop 8fb2ceda4f17
+  499  docker rm 8fb2ceda4f17
+  500  clear
+  501  ls
+  502  cd dev/
+  503  ls
+  504  cd _data/
+  505  ls
+  506  docker run -itd -v dev:/opt/ramu -v qa:/opt/qa ubuntu
+  507  docker
+  508  clear
+  509  docker ps
+  510  docker exec 8917dcec8224 ls /opt
+  511  docker exec 8917dcec8224 ls /opt/ramu
 
 
 2. Using Dockefile
