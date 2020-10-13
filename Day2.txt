@@ -305,6 +305,25 @@ How to share an image?
 
 
 2. Using hub.docker.com
+Step 1 - Register & Validate at hub.docker.com
+Step 2 - Login to hub.docker.com
+Step 3 - Create a empty repo
+
+Step 4 - MAKE SURE image in Local registry &&& repository at hub.docker.com MUST match
+Step 5 - docker login
+Step 6 - docker push
+
+ 488  docker images
+  489  clear
+  490  docker images
+  491  docker tag ub-up-git-java-apdevopsschools/mangal-ub-up-git-java-ap
+  492  docker tag ub-up-git-java-ap devopsschools/mangal-ub-up-git-java-ap
+  493  clear
+  494  docker images
+  495  docker login
+  496  docker push devopsschools/mangal-ub-up-git-java-ap
+  497  history
+
 
 3. Using Pvt registry i.e -artifactory
 
