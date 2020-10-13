@@ -1,0 +1,140 @@
+15.207.51.165
+===============================
+Container
+	COMPUTE
+	------------
+		net
+		vol
+		env
+		port
+		memory
+		cpu
+		block
+		eth
+	
+======================================
+docker help run
+======================================
+docker run -d --net=dev jenkins
+docker run -d --ip=d.d.d.d jenkins
+=================================================
+https://www.devopsschool.com/tutorial/docker/commands/index.html
+==============================================
+cp  
+	copy a files/dir from host to container
+	container to host
+
+ 217  touch devopsschool.txt
+  218  kls
+  219  ls
+  220  docker ps
+  221  docker cp devopsschool.txt 5ac865ee229d:/opt
+  222  docker exec 5ac865ee229d ls /opt
+  223  ls
+  224  rm -rf devopsschool.txt
+  225  clear
+  226  ls
+  227  docker cp 5ac865ee229d:/opt/devopsschool.txt .
+  228  ls
+
+================================
+How to exit a container without Stopping?
+-------------------------------------
+CTRl + P + Q
+
+ 199  docker help run
+
+  205  docker ps
+  206  clear
+  207  clear
+  208  docker run -it ubuntu
+  209  docker ps
+  210  docker run -itd ubuntu
+  211  docker ps
+
+===================================
+diff	Inspect changes to files or directories on a container's filesystem
+===================================
+	Would tell you
+	files/dir		
+			ADDED
+			CHANGED/Modified
+			DELETE
+		After a container got created
+
+  231  clear
+  232  docker ps
+  233  docker attach 5ac865ee229d
+  234  docker ps
+  235  docker diff 5ac865ee229d
+  236  history
+
+  238  docker ps
+  239  docker port 5ac865ee229d
+  240  docker port e5cfa6396267
+  241  docker run -d -p 8080:8080 jenkins
+  242  docker ps
+  243  docker port e16e1ea25b29
+  244  history
+
+ 244  history
+  245  clear
+  246  docker ps
+  247  docker rename 5ac865ee229d dev2
+  248  docker ps
+  249  docker rename ed123fd7084c dev3
+  250  docker ps
+  251  clear
+  252  docker run -d --name ramukaka jenkins
+  253  docker ps
+
+logs	Fetch the logs of a container (PID1)
+==============
+
+
+ 255  clear
+  256  docker ps
+  257  docker logs 7f0e1dec7b28
+  258  clear
+  259  docker ps
+  260  docker logs 5ac865ee229d
+  261  docker ps
+  262  clear
+  263* docker p
+  264  docker logs ed123fd7084c
+  265  watch docker logs ed123fd7084c
+  266  clear
+  267  clear
+  268  dcoker stats
+  269  docker stats
+  270  docker stats ed123fd7084c
+  271  history
+
+  267  clear
+  268  dcoker stats
+  269  docker stats
+  270  docker stats ed123fd7084c
+  271  history
+  272  clear
+  273  docker ps
+  274  docker top 7f0e1dec7b28
+  275  ps -eaf | grep jenkins.sh
+  276  history
+[root@ip-172-31-
+
+ 273  docker ps
+  274  docker top 7f0e1dec7b28
+  275  ps -eaf | grep jenkins.sh
+  276  history
+  277  clear
+  278  docker events
+  279  history
+
+ASSIGNMENT
+===================
+update	Update configuration of one or more containers
+wait	Block until one or more containers stop, then print their exit codes
+
+
+
+
