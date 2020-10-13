@@ -230,5 +230,100 @@ Anatomy of Images
   298  find . -name rajesh.txt
   299  docker start 844f74c3357a
   300  find . -name rajesh.txt
+==============================================================
+==============================================================
+
+How to create a Docker image?
+====================================
+1. Using Existing Container
+
+Base - Ubuntu	- DONE
+- git		- DONE
+- java		- DONE
+- http	- 
+===============
+65.0.93.156
+
+
+inside a container of ubuntu
+===========================
+  1  apt-get install git
+    2  apt-get update
+    3  clear
+    4  apt-get install git
+    5  clear
+    6  git
+    7  clear
+    8  java
+    9  apt-get install openjdk-8-jdk
+   10  clear
+   11  java
+   22  apt-get install apache2
+   23  clear
+   24  which git
+   25  which hava
+   26  which java
+   27  which apache2
+   28  pwd
+
+
+407  docker run -it ubuntu
+  408  docker ps
+  409  docker exec b202f75b9cef git
+  410  docker exec b202f75b9cef javae
+  411  clear
+  412  docker exec b202f75b9cef java
+  413  clear
+  414  docker ps
+  415  docker commit -m"ub-up-git-java-ap" -a"Rajesh kumar" b202f75b9cef ub-up-git-java-ap
+  416  docker images
+  417  docker history ubuntu
+  418  docker history ub-up-git-java-ap
+=================================================
+How to share an image?
+-----------------------------------
+1. Using Tar ball
+
+464  docker images
+  465  docker save -o ub-up-git-java-ap.tar ub-up-git-java-ap
+  466  ls
+  467  docker ps -a
+  468  docker stop b72170108d54
+  469  docker rm b72170108d54
+  470  docker images
+  471  docker rmi ub-up-git-java-ap
+  472  clear
+  473  docker images
+  474  ls
+  475  docker load -i ub-up-git-java-ap.tar
+  476  docker images
+  477  docker run -itd ub-up-git-java-ap.
+  478  docker run -itd ub-up-git-java-ap
+  479  do0
+  480  clear
+  481  docker ps
+
+
+2. Using hub.docker.com
+
+3. Using Pvt registry i.e -artifactory
+
+
+2. Using Dockefile
+=================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
