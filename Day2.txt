@@ -414,6 +414,16 @@ Docker Volume
   511  docker exec 8917dcec8224 ls /opt/ramu
 
 
+  524  docker run -itd -v /opt/bkp:/opt/rrr ubuntu
+  525  ls
+  526  touch ramu.txt
+  527  docker ps
+  528  docker exec 57b40bcb3a96 ls /opt/rrr
+  529  docker exec 57b40bcb3a96 touch /opt/rrr/gggg
+  530  ls
+  531  history
+
+================
 2. Using Dockefile
 =================================================
 
