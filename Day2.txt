@@ -423,12 +423,14 @@ Docker Volume
   530  ls
   531  history
 
+docker run -d -it --mount type=tmpfs,destination=/app nginx:latest
+
 ================
 2. Using Dockefile
 =================================================
 
 
-
+https://www.devopsschool.com/tutorial/docker/labs/docker/docker-lab-6-link.html
 
 
 
