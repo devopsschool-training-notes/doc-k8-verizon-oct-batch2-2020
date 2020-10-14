@@ -1,0 +1,84 @@
+Docker Compose		Demo + Lab
+Dockerfile
+Docker Toolbox
+=====================	
+Docker Cloud -== hub.docker.com
+		docker enterprise - swarm ++++ == TRIAL in cloud
+					
+
+	Docker Enterprise
+===========================
+https://www.devopsschool.com/blog/difference-between-docker-community-edition-ce-vs-docker-enterprise-edition-ee-in-2020/
+https://www.devopsschool.com/blog/what-is-docker-enterprise-3-0-detailed-exaplanations/
+=================================================================================
+What is Dockerfile
+
+What is Dockefile?
+==============================
+	FILE
+	Contains
+		Instructions
+
+	FROM
+	MAINTAINER
+	RUN
+	COPY
+	ARG
+	ENV
+	VOL
+	USER
+	EXPOSE
+	ADD
+
+	CMD
+	ENTRYPOINT
+===================================
+	BUILD	
+
+
+jenkins
+	openjdk:8-jdk
+		buildpack-deps:buster-scm
+			buildpack-deps:buster-curl
+					debian:buster
+						scratch
+
+Rule of Dockerfile
+==========================
+Each line of Dockerfile is creating ONE layer
+Each Layer is Creating from a container of Previous Line Layer Image
+
+=======================================================
+65.0.93.156
+
+
+
+==============dockerfile==========================
+FROM ubuntu
+MAINTAINER Rajesh Kumar devops@rajeshkumar.xyz
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update
+RUN apt-get -y install tzdata
+RUN apt-get install git -y
+RUN apt-get install openjdk-8-jdk -y
+RUN apt-get install apache2 -y 
+ENV RAJA_HOME=/opt/ramukaka
+VOLUME /opt/myvol
+COPY index.html /tmp
+$ docker build -t img2  .
+
+
+==============doc1==========================
+FROM ubuntu
+MAINTAINER Rajesh Kumar devops@rajeshkumar.xyz
+RUN touch /opt/rajesh1.txt
+RUN touch /opt/rajesh2.txt
+RUN touch /opt/rajesh2.txt
+$ docker build -t img2 -f doc1 .
+========================================
+
+
+
+
+
+
