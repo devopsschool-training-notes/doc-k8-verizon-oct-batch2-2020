@@ -259,6 +259,98 @@ networks:
   wordpress-network:
       driver: bridge
 
+==================================================================
+Master
+-------------------
+API server 	-> POD -> Container -> Image -> Google Registry
+Etcd 		-> POD -> Container -> Image -> Google Registry
+Controller Mgmr	-> POD -> Container -> Image -> Google Registry
+Schudlar	-> POD -> Container -> Image -> Google Registry	
+
+Kubelet
+Docker
+Kube Proxy	-> POD -> Container -> Image -> Google Registry
+
+Worker
+-------------------
+Kubelet
+Docker
+Kube Proxy	-> POD -> Container -> Image -> Google Registry
+
+Workstation
+-------------------
+Kubectl
+================================================================
+		How to setup a clustor?
+		===========================
+			40+
+https://kubernetes.io/docs/setup/
+
+Laptop === VMs === minikube
+=============================
+	ONE NODE CLUSTOR
+https://www.devopsschool.com/videos/show/minikube?type=videos
+
+Private Cloud
+	VMs == Manual ===== Kubeadm
+
+AWS = Hosted === EKS
+https://www.devopsschool.com/videos/show/eks?type=video
+
+Azure = Hosted === AKS
+
+GC = Hosted === GKE
+
+KOPS in cloud...
+====================================================
+Master = 13.126.132.1
+https://www.devopsschool.com/blog/setting-up-kubernetes-clusters-using-kubeadm-manual-way-in-rhel-7-centos7/
+
+
+Error Management
+==========================
+https://www.devopsschool.com/blog/kubernetes-error-kubeadm-related-errors-and-solutions/
+
+How to cleanup/delete?
+==========================
+https://www.devopsschool.com/blog/how-to-delete-remove-clean-existing-corrupted-or-old-kubeadm-kubernetes-clusters-setup/
+
+
+================================Setting up workstation=====================
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+======================================================
+
+
+
+You should now deploy a pod network to the cluster.
+Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+Then you can join any number of worker nodes by running the following on each as root:
+
+kubeadm join 172.31.6.76:6443 --token v50ukk.0u8cdofcl0eifudj \
+    --discovery-token-ca-cert-hash sha256:df56be5d0089fed92849cea7878c4b9879677e60fa5a1d8ddbc095b318cf9a44
+
+
+========================================================================================
+Workstation - DONE
+========================================================================================
+kubectl
+	READS ONE FILE CALLED config
+	=================================
+	$USER_HOME/.kube/config
+	Contains
+		API Server and Access details
+
+
+
+
+
+
 
 
 
