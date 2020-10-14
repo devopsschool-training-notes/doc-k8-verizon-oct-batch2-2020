@@ -117,11 +117,44 @@ https://www.devopsschool.com/tutorial/docker/dockerfile/dockerfile-example-sampl
 		what about if i pUt 2 Entrypoint
 		what about if i pUt 1 CMD and 1 ENTRYPOINT in dockerfile
 
+====================================
+REAL WORLD
+=====================
+EAR apps
+	inside a container
+==========================
+OS -> centos	DONE
+JDK -> 1.8	DONE
+Tomcat > 8.5	DONE	
+APP > ear from ARTIFACTORY
+EN - 	
+APP_HOME = /opt/app
+JAVA_HOME = /opt/java
+================================
+FROM centos
+or
+FROM openjdk:8-jdk
+or
+FROM tomcat:8.5 
 
 
-
-
-
+FROM centos
+MAINTAINER Vijay K
+RUN yum update
+RUN yum install java-1.8.0-openjdk -y
+ADD tomcat8.5.zip /opt/tomcat
+RUN curl http://1.0.5.5.5/repo/app55.ear /opt/tomcat/webapp
+ENV JAVA_HOME=
+ENV APP_HOME=/opt/tomcat/webapp/app
+RUN set -e \
+	&& nativeLines="$(catalina.sh configtest 2>&1)" \
+	&& nativeLines="$(echo "$nativeLines" | grep 'Apache Tomcat Native')" \
+	&& nativeLines="$(echo "$nativeLines" | sort -u)" \
+	&& if ! echo "$nativeLines" | grep -E 'INFO: Loaded( APR based)? Apache Tomcat Native library' >&2; then \
+		echo >&2 "$nativeLines"; \
+		exit 1; \
+	fi
+CMD ["catalina.sh", "run"]
 
 
 
