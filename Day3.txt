@@ -77,6 +77,59 @@ RUN touch /opt/rajesh2.txt
 $ docker build -t img2 -f doc1 .
 ========================================
 
+======================
+How to run container?
+How to set PID 1?
+====================================================
+CMD
+		CMD can be replaced	
+ENTRYPOINT
+		ENTRYPOINT CAN NOT be replaced
+===================================================
+=================================
+
+
+VerX ---> JAVA
+VerX ---> PYTHON
+======================
+
+
+KERNAL	--> HOST
+
+ROOTFS	--> Centos
+
+			jDK
+				ENV
+					Tomcat 
+						COPYVerX
+							Set CMD or Entrypoint
+						
+		
+
+Assignment
+=====================
+https://www.devopsschool.com/tutorial/docker/dockerfile/dockerfile-example-sample-lab.html
+
+1. Build each image
+2. Run each Image
+3. Find out an answer yourself
+		what about if i pUt 2 CMD
+		what about if i pUt 2 Entrypoint
+		what about if i pUt 1 CMD and 1 ENTRYPOINT in dockerfile
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
