@@ -156,14 +156,108 @@ RUN set -e \
 	fi
 CMD ["catalina.sh", "run"]
 
+===================================================
+What is Docker Compose?
+============================
+	Tool
+	for automating Dev env working with container
+		Read a file(yaml)
+			--- docker-compose.yaml
+					has 
+						services
+--------------------------------------------------------------------
+services
+	service1(web)
+		build
+		image
+		net
+		port
+		volume
+		env
+	service2(app)
+		build
+		image
+		net
+		port
+		volume
+		env
+	service3(db)
+		build
+		image
+		net
+		port
+		volume
+		env
+=========================================
+	docker-compose ps
+	docker-compose up
+
+How to install it?
+
+  665  sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  666  sudo chmod +x /usr/local/bin/docker-compose
+  667  sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+  668  docker-compose --version
+  669  history
 
 
 
+674  docker-compose up -d
+  675  ]clear
+  676  clear
+  677  docker ps
+  678  clear
+  679  docker-compose ps
+  680  ls
+  681  docker-compose
+  682  clear
+  683  docker-compose down
+  684  docker-compose ps
+  685  docker-compose up
+  686  docker-compose up -d
+  687  clear
+  688  docker-compose ps
+  689  docker-compose stop
+  690  docker-compose ps
+  691  docker-compose start
+  692  docker-compose ps
+  693  docker-compose logs
 
+------------------------docker-compose.yaml---------------------------------------
 
-
-
-
+version: '2'
+services:
+  wordpress:
+    image: wordpress:latest # https://hub.docker.com/_/wordpress/
+    ports:
+      - 80:80 # change ip if required
+    volumes:
+      - ./wp-app:/var/www/html # Full wordpress project
+      #- ./plugin-name/trunk/:/var/www/html/wp-content/plugins/plugin-name # Plugin development
+      #- ./theme-name/trunk/:/var/www/html/wp-content/themes/theme-name # Theme development
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: password
+    depends_on:
+      - db
+    networks:
+      - wordpress-network
+  db:
+    image: mysql:latest # https://hub.docker.com/_/mysql/ - or mariadb https://hub.docker.com/_/mariadb
+    ports:
+      - 3306:3306 # change ip if required
+    volumes:
+      - ./wp-data:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_ROOT_PASSWORD: password
+    networks:
+      - wordpress-network
+networks:
+  wordpress-network:
+      driver: bridge
 
 
 
