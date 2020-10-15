@@ -1,0 +1,157 @@
+Master == Workstation = 
+13.126.132.1
+centos
+centos123
+
+
+Worker - 65.0.85.153
+===================================
+
+Workstation
+	kubectl 
+		config
+	=============================
+	Clustor(s)
+		Clustor1 - http://Clustor1-API.com
+		Clustor2 - http://Clustor2.com
+		Clustor2 - http://Clustor2.com
+	User(s)
+		user1
+		user2
+		user3
+	Context(S)
+		context1 = user1 + clustor3
+		context2 = user2 + clustor1
+	curr-context
+		context2 
+===================================================
+What is your DESIRE????
+	- List of API Resources in k8?
+
+
+Namespace
+POD
+
+
+[centos@ip-172-31-6-76 ~]$ kubectl api-resources
+NAME                              SHORTNAMES   APIGROUP                       NAMESPACED   KIND
+bindings                                                                      true         Binding
+componentstatuses                 cs                                          false        ComponentStatus
+configmaps                        cm                                          true         ConfigMap
+endpoints                         ep                                          true         Endpoints
+events                            ev                                          true         Event
+limitranges                       limits                                      true         LimitRange
+namespaces                        ns                                          false        Namespace
+nodes                             no                                          false        Node
+persistentvolumeclaims            pvc                                         true         PersistentVolumeClaim
+persistentvolumes                 pv                                          false        PersistentVolume
+pods                              po                                          true         Pod
+podtemplates                                                                  true         PodTemplate
+replicationcontrollers            rc                                          true         ReplicationController
+resourcequotas                    quota                                       true         ResourceQuota
+secrets                                                                       true         Secret
+serviceaccounts                   sa                                          true         ServiceAccount
+services                          svc                                         true         Service
+mutatingwebhookconfigurations                  admissionregistration.k8s.io   false        MutatingWebhookConfiguration
+validatingwebhookconfigurations                admissionregistration.k8s.io   false        ValidatingWebhookConfiguration
+customresourcedefinitions         crd,crds     apiextensions.k8s.io           false        CustomResourceDefinition
+apiservices                                    apiregistration.k8s.io         false        APIService
+controllerrevisions                            apps                           true         ControllerRevision
+daemonsets                        ds           apps                           true         DaemonSet
+deployments                       deploy       apps                           true         Deployment
+replicasets                       rs           apps                           true         ReplicaSet
+statefulsets                      sts          apps                           true         StatefulSet
+tokenreviews                                   authentication.k8s.io          false        TokenReview
+localsubjectaccessreviews                      authorization.k8s.io           true         LocalSubjectAccessReview
+selfsubjectaccessreviews                       authorization.k8s.io           false        SelfSubjectAccessReview
+selfsubjectrulesreviews                        authorization.k8s.io           false        SelfSubjectRulesReview
+subjectaccessreviews                           authorization.k8s.io           false        SubjectAccessReview
+horizontalpodautoscalers          hpa          autoscaling                    true         HorizontalPodAutoscaler
+cronjobs                          cj           batch                          true         CronJob
+jobs                                           batch                          true         Job
+certificatesigningrequests        csr          certificates.k8s.io            false        CertificateSigningRequest
+leases                                         coordination.k8s.io            true         Lease
+endpointslices                                 discovery.k8s.io               true         EndpointSlice
+events                            ev           events.k8s.io                  true         Event
+ingresses                         ing          extensions                     true         Ingress
+ingressclasses                                 networking.k8s.io              false        IngressClass
+ingresses                         ing          networking.k8s.io              true         Ingress
+networkpolicies                   netpol       networking.k8s.io              true         NetworkPolicy
+runtimeclasses                                 node.k8s.io                    false        RuntimeClass
+poddisruptionbudgets              pdb          policy                         true         PodDisruptionBudget
+podsecuritypolicies               psp          policy                         false        PodSecurityPolicy
+clusterrolebindings                            rbac.authorization.k8s.io      false        ClusterRoleBinding
+clusterroles                                   rbac.authorization.k8s.io      false        ClusterRole
+rolebindings                                   rbac.authorization.k8s.io      true         RoleBinding
+roles                                          rbac.authorization.k8s.io      true         Role
+priorityclasses                   pc           scheduling.k8s.io              false        PriorityClass
+csidrivers                                     storage.k8s.io                 false        CSIDriver
+csinodes                                       storage.k8s.io                 false        CSINode
+storageclasses                    sc           storage.k8s.io                 false        StorageClass
+volumeattachments                              storage.k8s.io                 false        VolumeAttachment
+
+
+27  kubectl api-resources
+   28  kubectl api-resources | wc -l
+   29  clear
+   30  kubectl api-resources
+   31  clear
+   32  kubectl get ns
+   33  clear
+   34  kubectl
+   35  kubectl api-versions
+   36  clear
+   37  kubectl api-versions
+   38  kubectl api-resources
+   39  kubectl api-versions
+   40  history
+
+kubectl cluster-info
+===============================================
+What can you do with EACH API?
+----------------------------------------------
+GET - POST - PUT - DELETE
+-----------------------------------------
+CRUD
+	CREATE
+		CMD
+			create
+		YAML
+			create -f
+	READ
+		CMD
+			get
+
+	UPDATE/EDIT
+		CMD	
+			edit
+		YAML
+			apply -f
+
+	Delete
+		CMD
+			delete
+		YAML	
+			delete -f
+
+
+
+ 42  kubectl cluster-info
+   43  clear
+   44  kubectl api-resources
+   45  clear
+   46  kubectl
+   47  clear
+   48  kubectl get ns
+   49  kubectl create -h
+   50  kubectl create namespace -h
+   51  kubectl create namespace dev
+   52  clear
+   53  kubectl create namespace qa
+   54  kubectl get ns
+   55  kubectl edit ns dev
+   56  kubectl delete ns qa
+   57  kubectl get ns
+
+
+
