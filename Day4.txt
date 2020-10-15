@@ -152,6 +152,215 @@ CRUD
    55  kubectl edit ns dev
    56  kubectl delete ns qa
    57  kubectl get ns
+==========================================================
+POD
+=================
+-----------------------------------------
+CRUD
+	CREATE
+		CMD
+			create
+		YAML
+			create -f
+	READ
+		CMD
+			get
+
+	UPDATE/EDIT
+		CMD	
+			edit
+		YAML
+			apply -f
+
+	Delete
+		CMD
+			delete
+		YAML	
+			delete -f
 
 
 
+=================================================
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-pod
+  labels: 
+    app: webserver
+spec:
+  containers:
+  - name: hello-ctr
+    image: nginx
+    ports:
+    - containerPort: 80
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-pod-jen
+  labels: 
+    app: webserver
+spec:
+  containers:
+  - name: hello-ctr
+    image: nginx
+    ports:
+    - containerPort: 80
+  - name: hello-ctr1
+    image: jenkins
+    ports:
+    - containerPort: 8080
+
+83  kubectl create ns rajesh
+   84  clear
+   85  kubectl get ns
+   86  kubectl get pods -n=rajesh
+   87  kubectl get pods
+   88  kubectl create -f pod.yaml -n=rajesh
+   89  kubectl get pods
+   90  kubectl get pods -n=rajesh
+   91  kubectl edit pod hello-pod
+   92  kubectl edit pod hello-pod -n=rajesh
+   93  kubectl get pods -n=rajesh
+   94  kubectl get pods -n=rajesh --show-lables
+   95  kubectl get pods -n=rajesh --show-labels
+   96  vi pod.yaml
+   97  kubectl apply -f pod.yaml -n=rajesh
+   98  kubectl get pods -n=rajesh --show-labels
+   99  clear
+  100  ls
+  101  vi pod1.yaml
+  102  kubectl create -f pod.yaml -n=rajesh
+  103  kubectl create -f pod1.yaml -n=rajesh
+  104  kubectl get pods -n=rajesh --show-labels
+  105  clear
+  106  ls
+  107  kubectl get pods -n=rajesh --show-labels
+  108  kubectl delete pod hello-pod -n=rajesh
+  109  kubectl get pods -n=rajesh --show-labels
+  110  ls
+  111  kubectl delete -f pod1.yaml -n=rajesh
+
+======================================================
+How to work with Containers?
+===============================
+exec
+attach
+logs
+cp
+explain
+-p
+
+How to work with PODS?
+===============================
+
+  describe      Show details of a specific resource or group of resources
+  logs          Print the logs for a container in a pod
+  attach        Attach to a running container
+  exec          Execute a command in a container
+  port-forward  Forward one or more local ports to a pod
+  proxy         Run a proxy to the Kubernetes API server
+  cp            Copy files and directories to and from containers.
+  auth          Inspect authorization
+
+
+ 117  kubectl
+  118  cleare
+  119  clear
+  120  kubectl get pods -n=rajesh
+  121  kubectl create -f pod.yaml -n=rajesh
+  122  kubectl get pods -n=rajesh
+  123  kubectl describe pod hello-pod -n=rajesh
+  124  clear
+  125  kubectl logs hello-pod -n=rajesh
+  126  kubectl get pods -n=rajesh -o wide
+  127  curl http://10.44.0.1
+  128  kubectl logs hello-pod -n=rajesh
+  129  curl http://10.44.0.1
+  130  kubectl logs hello-pod -n=rajesh
+  131  curl http://10.44.0.1
+  132  kubectl logs hello-pod -n=rajesh
+  133  clear
+  134  kubectl get pods -n=rajesh
+  135  history
+
+ 136  clear
+  137  kubectl get pods -n=rajesh
+  138  kubectl attach hello-pod -n=rajesh
+  139  clear
+  140  kubectl get pods -n=rajesh
+  141  history
+  142  clear
+  143  kubectl attach -h
+  144  clear
+  145  kubectl get pods -n=rajesh
+  146  kubectl describe pods hello-pod -n=rajesh
+  147  clear
+  148  kubectl get pods -n=rajesh
+  149  kubectl exec hello-pod ls
+  150  kubectl exec hello-pod ls /
+  151  kubectl exec hello-pod ls / -n=rajesh
+  152  clear
+  153  kubectl exec hello-pod df -kh -n=rajesh
+  154  kubectl exec hello-pod df -h -n=rajesh
+  155  clear
+  156  kubectl exec hello-pod df  -n=rajesh
+  157  kubectl exec hello-pod 'df -h' -n=rajesh
+  158  kubectl exec hello-pod 'df -sh' -n=rajesh
+  159  kubectl exec hello-pod /bin/bash -c 'df -sh' -n=rajesh
+  160  clear
+  161  kubectl exec hello-pod /bin/bash -c `df -sh` -n=rajesh
+  162  kubectl exec hello-pod `df -sh` -n=rajesh
+  163  kubectl exec -h
+ 174  kubectl exec hello-pod -n-rajesh -- /bin/bash -c  "df -kh"
+  175  kubectl exec hello-pod -n=rajesh -- /bin/bash -c  "df -kh"
+  176  kubectl exec hello-pod -n=rajesh ls
+  177  kubectl exec hello-pod -n=rajesh df
+  178  kubectl exec hello-pod -n=rajesh du
+  179  clear
+  180  kubectl exec -it hello-pod -n=rajesh /bin/bash
+  181  clear
+
+
+kubectl port-forward pod/hello-pod 8888:80 -n=rajesh
+curl http://localhost:8888
+
+ 183  clear
+  184  kubectl get pods -n=rajesh -o wide
+  185  curl http://10.44.0.1
+  186  clear
+  187  kubectl get pods -n=rajesh -o wide
+  188  kubectl port-forward -h
+  189  kubectl get pods -n=rajesh -o wide
+  190  clear
+  191  kubectl port-forward pod/hello-pod 8888:80
+  192  kubectl port-forward pod/hello-pod 8888:80 -n=rajesh
+  193  clear
+  194  history
+  195  clear
+  196  kubectl port-forward -h
+  197  clear
+  198  history
+  199  clear
+  200  kubectl get pods -n=rajesh
+  201  kubectl exec hello-pod ls /opt
+  202  kubectl exec hello-pod ls /opt -n=rajesh
+  203  ls
+  204  kubectl cp pod.yaml hello-pod:/opt -n=rajesh
+  205  kubectl exec hello-pod ls /opt -n=rajesh
+  206  kubectl cp -h
+  200  kubectl get pods -n=rajesh
+  201  kubectl exec hello-pod ls /opt
+  202  kubectl exec hello-pod ls /opt -n=rajesh
+  203  ls
+  204  kubectl cp pod.yaml hello-pod:/opt -n=rajesh
+  205  kubectl exec hello-pod ls /opt -n=rajesh
+  206  kubectl cp -h
+  207  history
+  208  clear
+  209  kubectl auth
+  210  kubectl auth can-i create pod
+  211  kubectl auth can-i delete pod
+  212  kubectl auth can-i delete ns
