@@ -447,10 +447,80 @@ spec:
   277  kubectl delete pods hello-pod hello-rc-5q4c8 hello-rc-fc475 hello-rc-jsddr hello-rc-jtsf4 hello-rc-l8frb hello-rc-q2zrl hello-rc-qfqvw
   278  kubectl delete pods hello-pod hello-rc-5q4c8 hello-rc-fc475 hello-rc-jsddr hello-rc-jtsf4 hello-rc-l8frb hello-rc-q2zrl hello-rc-qfqvw -n=rajesh
   279  kubectl get pods -n=rajesh
+==================================================
+==================================================
+Deployment
+==================
+Replication + Controller  
+--------------------------
+	ReplicaSets
+
+Versioning	 - Deployment image history upto the 10 image--- 
+Rollout
+Rollback
+
+Image
+===========================
+scmgalaxy/nginx-devopsschoolv1
+scmgalaxy/nginx-devopsschoolv2
+=======================
+imagename:v1
+imagename:v2
+
+
+kubectl create deployment my-dep --image=scmgalaxy/nginx-devopsschoolv1
+
+kubectl rollout history deployment/my-dep -n=rajesh
+kubectl rollout status deployment/my-dep -n=rajesh
+kubectl get pods -n=rajesh -o wide
+curl http://10.44.0.4
+kubectl edit deployment/my-dep -n=rajesh	# scmgalaxy/nginx-devopsschoolv2
+kubectl rollout status deployment/my-dep -n=rajesh
+kubectl rollout history deployment/my-dep -n=rajesh
+kubectl get pods -n=rajesh -o wide
+curl http://10.44.0.10
+
+kubectl rollout undo deployment/my-dep --to-revision=1 -n=rajesh
+kubectl rollout status deployment/my-dep -n=rajesh
 
 
 
-
+25  kubectl api-versions
+   26  kubectl cluster-info
+   27  kubectl create -h
+   28  kubectl create ns qa
+   29  kubectl get ns
+   30  kubectl edit ns qa
+   31  kubectl rollout -h
+   32  kubectl rollout status deployment/my-dep -n=rajesh
+   33  clear
+   34  kubectl rollout undo -h
+   35  clear]
+   36  clear
+   37  kubectl rollout history deployment/my-dep -n=rajesh
+   38  kubectl rollout status deployment/my-dep -n=rajesh
+   39  kubectl get pods -n=rajesh -o wide
+   40  clear
+   41  curl http://10.44.0.4
+   42  kubectl edit deployment/my-dep -n=rajesh
+   43  kubectl rollout status deployment/my-dep -n=rajesh
+   44  clear
+   45  kubectl rollout history deployment/my-dep -n=rajesh
+   46  kubectl get pods -n=rajesh -o wide
+   47  clear
+   48  curl http://10.44.0.10
+   49  clear
+   50  kubectl get pods -n=rajesh -o wide
+   51  clear
+   52  kubectl rollout history deployment/my-dep -n=rajesh
+   53  kubectl rollout undo deployment/my-dep --to-revision=1 -n=rajesh
+   54  clear
+   55  kubectl rollout undo deployment/my-dep --to-revision=1 -n=rajesh
+   56  kubectl rollout status deployment/my-dep -n=rajesh
+   57  kubectl rollout history deployment/my-dep -n=rajesh
+   58  kubectl get pods -n=rajesh -o wide
+   59  curl http://10.44.0.1
+   60  clear
 
 
 
