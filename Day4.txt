@@ -364,3 +364,95 @@ curl http://localhost:8888
   210  kubectl auth can-i create pod
   211  kubectl auth can-i delete pod
   212  kubectl auth can-i delete ns
+=======================================================
+RC = Replication Controller
+Replication  - ONE POD TO MANY POD
+Controller = Whatever you set === Actual
+==================================================
+
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: hello-rc
+spec:
+  replicas: 2   
+  template:
+    metadata:
+      labels:
+        app: hello-world
+    spec:
+      containers:
+      - name: hello-ctr
+        image: nginx
+        ports:
+        - containerPort: 80
+
+
+ 220  clear
+  221  kubectl explain ns
+  222  kubectl explain ns.spec
+  223  kubectl explain pods
+  224  kubectl explain pods.s[ec
+  225  kubectl explain pods.spec
+  226  kubectl explain pods.spec.containers
+  227  kubectl explain pods.spec
+  228  kubectl explain rc
+  229  kubectl explain rc.spec
+  230  kubectl explain rc.spec.template
+  231  kubectl explain rc.spec.template.spec
+  232  kubectl explain rc.spec.template.spec.containers
+  233  history
+
+ 236  pwd
+  237  vi rc.yaml
+  238  kubectl get rc
+  239  kubectl get rc -n=rajesh
+  240  kubectl apply -f rc.yaml -n=rajesh
+  241  kubectl get rc -n=rajesh
+  242  kubectl get pods
+  243  kubectl get pods -n=rajesh
+  244  kubectl describe pod hello-rc-fc475 -n=rajesh
+  245  clear
+  246  kubectl describe pod hello-rc-fc475 -n=rajesh
+  247  clear
+  248  kubectl get pods -n=rajesh
+  249  kubectl get rc -n=rajesh
+  250  kubectl edit rc hello-rc -n=rajesh
+  251  kubectl get pods -n=rajesh
+  252  clear
+  253  ls
+  254  kubectl
+  255  clear
+  256  kubectl scale-h
+  257  kubectl scale -h
+  258  clear
+  259  kubectl get rc -n=rajesh
+  260  kubectl scale --replicas=1 rc/hello-rc
+  261  kubectl scale --replicas=1 rc/hello-rc -n=rajesh
+  262  kubectl get rc -n=rajesh
+  263  kubectl scale --replicas=10 rc/hello-rc -n=rajesh
+  264  kubectl get rc -n=rajesh
+  265  watch kubectl get rc -n=rajesh
+  266  history
+  267  clear
+  268  watch kubectl get rc -n=rajesh
+  269  clear
+  270  kubectl get pods -n=rajesh
+  271  kubectl describe pod hello-pod -n=rajesh
+  272  clear
+  273  kubectl get pods -n=rajesh
+  274  kubectl describe pod hello-rc-fc475 -n=rajesh
+  275  clear
+  276  kubectl get pods -n=rajesh
+  277  kubectl delete pods hello-pod hello-rc-5q4c8 hello-rc-fc475 hello-rc-jsddr hello-rc-jtsf4 hello-rc-l8frb hello-rc-q2zrl hello-rc-qfqvw
+  278  kubectl delete pods hello-pod hello-rc-5q4c8 hello-rc-fc475 hello-rc-jsddr hello-rc-jtsf4 hello-rc-l8frb hello-rc-q2zrl hello-rc-qfqvw -n=rajesh
+  279  kubectl get pods -n=rajesh
+
+
+
+
+
+
+
+
+
