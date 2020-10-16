@@ -348,4 +348,119 @@ spec:
   480  history
 
 
+=============================================================================
+
+
+Authentication and Authorization
+=====================================
+
+Authentication - How can i login? To Api server?
+https://kubernetes.io/docs/reference/access-authn-authz/authentication/
+- Cert		=== BY HUMAN	== US
+- TOKEN		=== BY Service Account == Interacting Services within clustor
+
+Authorization - What are the things which i am allowed to do?
+- RBAC
+- ROLE BASED ACCESS CONTROl
+
+ROLE
+	ROLE			ROLE BINDING
+	CLUSTOR ROLE		CLUSTOR ROLE BINDING
+
+USER
+	WE
+	Service Account
+
+
+
+
+sudo openssl x509 -req -in /home/centos/rajesh/employee.csr -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -out /home/centos/rajesh/employee.crt -days 500
+
+
+/home/centos/rajesh/employee.crt
+/home/centos/rajesh/employee.key
+
+kubectl config set-credentials employee --client-certificate=/home/centos/rajesh/employee.crt  --client-key=/home/centos/rajesh/employee.key
+
+
+kubectl config set-context employee-context --cluster=kubernetes --namespace=office --user=employee
+
+kubectl --context=employee-context get pods
+
+Reference
+https://github.com/devopsschool-training-notes/Kubernetes-Tecnotree-Nov-2019/blob/master/SUPERNOTES.TXT
+===========================================================================
+===========================================================================
+Ingress
+Helm
+Secrets
+DASHBOARD
+=========================================
+What is Ingress?
+================
+	APP LB MECH
+	Wheeras service is your
+	TCP
+
+
+Request Pattrent in Ingress Rule
+	-- NAME
+		dev.devopsschool.com	- service1
+		qa.devopsschool.com	- service2
+	-- PATH
+		devopsschool.com/dev	- service3
+		devopsschool.com/dev	- service4
+
+Ingress Controller
+	FREE -= https://kubernetes.github.io/ingress-nginx/
+	https://medium.com/swlh/kubernetes-ingress-controller-overview-81abbaca19ec
+
+Ambassador: API Gateway based on Envoy with community/commercial support from Datawire
+Voyager: HAProxy based Ingress Controller from AppsCode
+Contour: Envoy based Ingress Controller from Heptio (acquired by VMWare)
+Gloo: Envoy based API Gateway with enterprise support from solo.io
+Citrix: Ingress Controller for MPX, VPX, and CPX ADC products
+F5: Supports F5’s BIG-IP Container Ingress Services
+HAProxy: Community-driven HAProxy Ingress Controller as well as enterprise offering from HAProxy Tech
+Istio: Ingress Gateway for Istio-enabled clusters
+Kong: nginx-based API gateway with community/enterprise options from KongHQ
+NGINX: official Ingress for NGINX and NGINX Plus
+Skipper: HTTP router and reverse proxy from Zalando
+Traefik: HTTP reverse proxy with commercial support from Containous
+
+
+
+AKS Application Gateway Ingress Controller
+AWS ALB Ingress Controller
+GCP GLBC/GCE-Ingress Controller
+
+
+https://www.devopsschool.com/blog/kubernetes-ingress-tutorials-with-examples-and-lab-using-loadbalancer/
+https://www.devopsschool.com/blog/kubernetes-ingress-tutorials-with-examples-and-lab-using-nodeport/
+
+==============================
+Helm
+=================================
+APT-get
+YUM
+Google Play Store
+===============
+Helm is package manager install 
+		MULTIPLE Resources in ONE COMMAND
+		--- iNstall
+		--- update
+		--- remove
+		
+Secrets
+===============================
+ENCODED data '
+	in key and value format
+				Stored in K8s
+				------------------
+				Using - 
+				Can be mounted in POD
+
+DASHBOARD
+========================
+
 
