@@ -234,13 +234,118 @@ ver.devopsschool.com
   592  kubectl get svc -n=rajesh
   593  curl http://10.101.76.212
   594  kubectl get deploy -n=rajesh
+=============================================
+Storage
+=============================
+https://www.devopsschool.com/blog/persistentvolume-persistentvolumeclaim-volumes-using-hostpath/
+PV
+
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: hostpath
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/tmp/devopsschool"
+
+
+PVC
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvchostpath
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+
+
+POD
+
+
+kind: Pod
+apiVersion: v1
+metadata:
+  name: task-pv-pod
+spec:
+  containers:
+    - name: task-pv-container
+      image: scmgalaxy/nginx-devopsschoolv1
+      ports:
+        - containerPort: 80
+          name: "http-server"
+      volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: task-pv-storage
+  volumes:
+    - name: task-pv-storage
+      persistentVolumeClaim:
+        claimName: pvchostpath
 
 
 
-
-
-
-
+  430  kubectl get nodes
+  431  ls
+  432  cd rajesh/
+  433  clear
+  434  ls
+  435  kubectl get pods -n=rajesh
+  436  kubectl delete deploy my-dep -n=rajesh
+  437  clear
+  438  kubectl get pv
+  439  kubectl get pvc
+  440  kubectl get pvc -n=rajesh
+  441  clear
+  442  ls
+  443  cd rajesh/
+  444  ls
+  445  vi pv.yaml
+  446  kubectl get pods
+  447  kubectl delete deploy my-dep
+  448  clear
+  449  vi pv.yaml
+  450  kubectl create -f pv.yaml
+  451  kubectl get pv
+  452  vi pv.yaml
+  453  kubectl create -f pv.yaml
+  454  vi pv.yaml
+  455  kubectl create -f pv.yaml
+  456  kubectl get pv
+  457  vi pvc.yaml
+  458  kubectl create -f pvc.yaml
+  459  kubectl get vcs
+  460  kubectl get pvc
+  461  kubectl get pv
+  462  kubectl get pvc
+  463  clear
+  464  vi pod2.yaml
+  465  kubectl create -f pod2.yaml
+  466  kubectl get pvc
+  467  kubectl get pods
+  468  kubectl exec task-pv-pod df -kh'
+  469  kubectl exec task-pv-pod df -kh
+  470  kubectl exec task-pv-pod df -k
+  471  kubectl exec task-pv-pod df
+  472  clear
+  473  ls
+  474  kubectl exec task-pv-pod touch /usr/share/nginx/html/raju.txt
+  475  kubectl exec task-pv-pod ls /usr/share/nginx/html
+  476  kubectl get pods
+  477  kubectl delete pod task-pv-pod
+  478  kubectl create -f pod2.yaml
+  479  kubectl exec task-pv-pod ls /usr/share/nginx/html
+  480  history
 
 
 
