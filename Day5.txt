@@ -153,15 +153,87 @@ scmgalaxy/nginx-devopsschoolv1
 scmgalaxy/nginx-devopsschoolv2
 =================================
 
+  530  clear
+  531  kubectl create service nodeport -h
+  532  clear
+  533  kubectl create service nodeport my-ns --tcp=5678:80 -n-rajesh
+  534  kubectl create service nodeport my-ns --tcp=5678:80 -n=rajesh
+  535  kubectl get svc -n=rajesh
+  536  curl http://10.103.246.239:5678
+  537  kubectl get pods -n=rajesh --show-labels
+  538  kubectl edit svc my-ns -n=rajesh
+  539  kubectl describe svc my-ns -n=rajesh
+  540  clear
+  541  ls
+  542  kubectl get svc -n=rajesh
+  543  ifconfig
+  544  clear
+  545  kubectl get svc -n=rajesh
+  546  curl http://172.31.6.76:31858
+  547  watch curl http://172.31.6.76:31858
+  548  histopry
+=============================================
+
+
+kubectl create service loadbalancer my-lbs --tcp=5678:80
+
+ver.devopsschool.com
+ 543  ifconfig
+  544  clear
+  545  kubectl get svc -n=rajesh
+  546  curl http://172.31.6.76:31858
+  547  watch curl http://172.31.6.76:31858
+  548  histopry
+  549  history
+  550  clear
+  551  kubectl create service -h
+  552  kubectl create service loadbalancer -h
+  553  clear
+  554  kubectl create service loadbalancer my-lbs --tcp=5678:80 -n=rajesh
+  555  kubectl get ns
+  556  clear
+  557  kubectl get svc -n=rajesh
+  558  kubectl get pod --show-labels -n=rajesh
+  559  kubectl edit svc my-lbs -n=rajesh
+  560  kubectl describe svc my-lbs -n=rajesh
+  561  clear
+  562  ls
+  563  kubectl get svc -n=rajesh
+  564  curl http://10.111.66.41:5678
+  565  curl http://172.31.6.76:31858
+  566  clear
+  567  kubectl get nodes
+  568  clear
+  569  watch curl http://veri-1839836352.ap-south-1.elb.amazonaws.com
+  570  clear
+  571  ls
+  572  kubectl create deploy -h
+  573  clear
 
 
 
-
-
-
-
-
-
+  573  clear
+  574  kubectl create deployment my-dep --image=scmgalaxy/nginx-devopsschoolv2
+  575  kubectl create deployment my-dep --image=scmgalaxy/nginx-devopsschoolv2-n=rajesh
+  576  kubectl create deployment my-dep1 --image=scmgalaxy/nginx-devopsschoolv2-n=rajesh
+  577  kubectl create deployment my-dep --image=scmgalaxy/nginx-devopsschoolv2 -n=rajesh
+  578  kubectl get deploy -n-rajesh
+  579  kubectl get deploy -n=rajesh
+  580  clear
+  581  kubectl scale -h
+  582  clear
+  583  kubectl get deploy -n-rajesh
+  584  kubectl get deploy -n=rajesh
+  585  kubectl scale --replicas=15 deploy/my-dep -n=rajesh
+  586  kubectl get deploy -n-rajesh
+  587  kubectl get deploy -n=rajesh
+  588  kubectl expose -h
+  589  clear
+  590  kubectl get deploy -n=rajesh
+  591  kubectl expose deploy my-dep --port=80 --target-port=80 --type=NodePort -n=rajesh
+  592  kubectl get svc -n=rajesh
+  593  curl http://10.101.76.212
+  594  kubectl get deploy -n=rajesh
 
 
 
