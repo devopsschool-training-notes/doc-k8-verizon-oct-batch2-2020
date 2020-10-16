@@ -1,0 +1,174 @@
+13.233.159.122
+centos
+centos123
+
+Image
+===========================
+scmgalaxy/nginx-devopsschoolv1
+scmgalaxy/nginx-devopsschoolv2
+=======================
+imagename:v1
+imagename:v2
+
+
+
+ 434  kubectl get svc -n=rajesh
+  435  clear
+  436  kubectl get pods -n=rajesh
+  437  ls
+  438  cd ra
+  439  cd rajesh/
+  440  ls
+  441  clear
+  442  ls
+  443  vi pod.yaml
+  444  kubectl create -f pod.yaml -n=rajesh
+  445  kubectl get pods -n=rajesh
+  446  kubectl get pods -n=rajesh -o wide
+  447  curl http://10.44.0.1
+  448  kubectl get pods -n=rajesh --show-labels
+  449  clear
+  450  kubectl create -h
+  451  kubectl create service -h
+  452  clear
+  453  kubectl create service -h
+
+
+[centos@ip-172-31-6-76 rajesh]$ kubectl create service -h
+Create a service using specified subcommand.
+
+Aliases:
+service, svc
+
+Available Commands:
+  clusterip    Create a ClusterIP service.
+  nodeport     Create a NodePort service.
+  loadbalancer Create a LoadBalancer service.
+
+=============================================================================
+Node IP Aka Worker IP Aka REAL IP of the SERVER
+=====================Kube Proxy + Weave ==========================
+POD IP - - IP address of PODS. through POD network
+			===================
+			powered by
+				Kube Proxy
+					has driver
+							Weavenet(Overlay)
+
+
+clusterip    
+		create a SVC with IP add from POD network accessible inside a clustor.
+
+NodePort
+		create a SVC with IP add from POD network accessible inside a clustor. aka clusterip    		Plus
+		Services would be exposed to EACH node at some specific port
+
+loadbalancer 		
+		create a SVC with IP add from POD network accessible inside a clustor. aka clusterip    		Plus
+		Services would be exposed to EACH node at some specific port
+		Plus
+		K8s would create external LB on your CLOUD and Add each node to the E LB.
+==========================================================
+ 455  clear
+  456  kubectl create service -h
+  457  clear
+  458  kubectl
+  459  clear
+  460  kubectl port-forward -h
+  461  clear
+  462  kubectl get pods -n=rajesh --show-labels
+  463  kubectl get pods -n=rajesh --show-labels -o wide
+  464  clear
+  465  kubectl get pods -n=rajesh --show-labels -o wide
+  466  kubectl create service -h
+  467  kubectl create service clusterip -h
+  468  clear
+  469  kubectl create service clusterip -h
+  470  clear
+  471  kubectl create service clusterip my-cs --tcp=5678:80
+  472  kubectl create service clusterip my-cs --tcp=5678:80 -n=rajesh
+  473  kubectl get svc -n=rajesh
+  474  curl http://10.105.31.34
+  475  curl http://10.105.31.34:5678
+  476  kubectl gets pods -n=rajesh
+  477  kubectl get pods -n=rajesh
+  478  clear
+  479  kubectl get pods -n=rajesh --show-labels -o wide
+  480  kubectl get svc -n=rajesh
+  481  curl http://10.105.31.34:5678
+  482  kubectl describe svc my-cs -n=rajesh
+  483  kubectl get svc -n=rajesh --show-lables;kubectl get pods -n=rajesh --show-labels
+  484  clear
+  485  kubectl get svc -n=rajesh --show-labels;kubectl get pods -n=rajesh --show-labels
+  486  kubectl describe svc my-cs -n=rajesh
+  487  kubectl edit svc my-cs -n=rajesh
+  488  clear
+  489  kubectl get svc -n=rajesh --show-labels;kubectl get pods -n=rajesh --show-labels
+  490  kubectl describe svc my-cs -n=rajesh
+  491  curl http://10.105.31.34:5678
+  492  kubectl edit svc my-cs -n=rajesh
+  493  clear
+  494  kubectl describe svc my-cs -n=rajesh
+  495  ls
+  496  kubectl create deploy -h
+  497  clear
+  498  ls
+  499  clear
+  500  ls
+  501  kubectl create -f pod1.yaml -n-rajesh
+  502  kubectl create -f pod1.yaml -n=rajesh
+  503  clear
+  504  kubectl get svc -n=rajesh --show-labels;kubectl get pods -n=rajesh --show-labels
+  505  kubectl describe svc my-cs -n=rajesh
+  506  vi pod1.yaml
+  507  kubectl apply -f pod1.yaml -n=rajesh
+  508  clear
+  509  kubectl get pod -o wide -n=rajesh
+  510  curl http://10.44.0.2
+  511  curl http://10.44.0.1
+  512  kubectl get svc -n=rajesh --show-labels;kubectl get pods -n=rajesh --show-labels
+  513  kubectl describe svc my-cs -n=rajesh
+  514  clear
+  515  kubectl edit pod hello-pod-jen -n=rajesh
+  516  clear
+  517  kubectl describe svc my-cs -n=rajesh
+  518  kubectl get svc -n=rajesh --show-labels;kubectl get pods -n=rajesh --show-labels
+  519  kubectl describe svc my-cs -n=rajesh
+  520  kubectl edit svc my-cs -n=rajesh
+  521  clear
+  522  kubectl get svc -n=rajesh --show-labels;kubectl get pods -n=rajesh --show-labels
+  523  kubectl describe svc my-cs -n=rajesh
+  524  curl http://10.105.31.34:5678
+  525  clear
+  526  watch curl http://10.105.31.34:5678
+
+Notes
+=================================
+Lables of PODS Must match with Selector of Service for PODS to be LoadBalanced by Service
+================
+Images Field
+Label Field
+Selector field need to be changed only for this Lab.
+scmgalaxy/nginx-devopsschoolv1
+scmgalaxy/nginx-devopsschoolv2
+=================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
